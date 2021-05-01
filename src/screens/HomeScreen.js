@@ -1,19 +1,19 @@
 import * as React from "react";
-import { Text, View, TextInput, ScrollView,Dimensions } from "react-native";
+import { Text, View, TextInput, ScrollView, Dimensions } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LogoTitle from "../component/LogoStyle";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Category from "../component/category";
 import Deals from "../component/Deals";
+import Vitamin from "../screens/Vitamin"
 import Image1 from "../../assets/imgavatar.png";
 
-
 const Stack = createStackNavigator();
-const { height, width } = Dimensions.get('window')
+const { height, width } = Dimensions.get("window");
 
 function Home() {
   return (
-    <View style={{ flex: 1,alignItems:"flex-start" }}>
+    <View style={{ flex: 1, alignItems: "flex-start" }}>
       <View
         style={{
           flexDirection: "row",
@@ -44,37 +44,73 @@ function Home() {
 
       <View
         style={{
+          width: width - 40,
           flexDirection: "row",
           justifyContent: "space-between",
           padding: 10,
           marginHorizontal: 20,
+          marginTop: 14,
         }}
       >
-        <Text style={{fontWeight:"700"}}>Shop By Category</Text>
-        <Text style={{fontWeight:"700"}}>See All</Text>
+        <Text style={{ fontWeight: "700" }}>Shop By Category</Text>
+        <Text style={{ fontWeight: "700" }}>See All</Text>
       </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{height:10,marginHorizontal:0,padding:0,paddingBottom:0}}>
-        <Category name="Diabetes"/>
-        <Category name="Supplements"/>
-        <Category name="Vitamin"/>
-        <Category name="Ayuveda"/>
-        <Category name="Tablets"/>
-      </ScrollView>
-      <View
+      <ScrollView>
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={{ maxHeight: 90 }}
+        >
+          <Category name="Diabetes" />
+          <Category name="Supplements" />
+          <Category name="Vitamin" />
+          <Category name="Ayuveda" />
+          <Category name="Tablets" />
+        </ScrollView>
+        <View
+          style={{
+            width: width - 40,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            padding: 10,
+            marginHorizontal: 20,
+            marginTop: 15,
+          }}
+        >
+          <Text style={{ fontWeight: "700" }}>Deals & Offers</Text>
+          <Text style={{ fontWeight: "700" }}>See All</Text>
+        </View>
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={{ maxHeight: 190 }}
+        >
+          <Deals name="Vitamin" price="$56.00" cutprice="90.00" />
+          <Deals name="Ayuveda" price="$89.00" cutprice="90.00" />
+        </ScrollView>
+        <View
         style={{
-            width:width-40,
+          width: width - 40,
           flexDirection: "row",
           justifyContent: "space-between",
           padding: 10,
           marginHorizontal: 20,
+          marginTop: 14,
         }}
       >
-        <Text style={{fontWeight:"700"}}>Deals & Offers</Text>
-        <Text style={{fontWeight:"700"}}>See All</Text>
+        <Text style={{ fontWeight: "700" }}>Vitamin Supplement</Text>
+        <Text style={{ fontWeight: "700" }}>See All</Text>
       </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{height:1}}>
-      <Deals name="Vitamin" price="$56.00" cutprice="90.00"/>
-      <Deals name="Ayuveda" price="$89.00" cutprice="90.00"/>
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={{ maxHeight: 190 }}
+        >
+          <Vitamin name="Vitamin" cutprice="6.5" />
+          <Vitamin name="Ayuveda" cutprice="6.8" />
+          <Vitamin name="Vitamin" cutprice="6.8" />
+          <Vitamin name="Ayuveda" cutprice="6.8" />
+        </ScrollView>
       </ScrollView>
     </View>
   );
